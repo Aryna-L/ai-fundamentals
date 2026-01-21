@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About AI Fundamentals | AI Fundamentals</title>
+    <meta name="description" content="Learn about AI Fundamentals: why this site exists, what makes it different, and how it helps teams understand AI concepts.">
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "About AI Fundamentals",
+        "description": "Why this site exists and what makes it different",
+        "author": {
+            "@type": "Organization",
+            "name": "AI Fundamentals"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AI Fundamentals"
+        },
+        "datePublished": "2025-01-21",
+        "inLanguage": "en-US",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ai-fundamentals.example.com/about"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">AI</div>
+                <span class="logo-text">AI Fundamentals</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#concepts">Concepts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-study.html">Case Study</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main>
+            <h1>About AI Fundamentals</h1>
+            
+            <div class="intro-box">
+                <p>This project explores how complex AI concepts can be explained clearly for non-technical teams making decisions about AI implementation. It demonstrates how to structure educational content for both human understanding and AI answer engines.</p>
+            </div>
+            
+            <h2>The Problem</h2>
+            <p>Most AI content falls into two extremes. Technical documentation assumes deep ML knowledge. Marketing content oversimplifies to the point of uselessness.</p>
+            
+            <p>Product managers, founders, and technical leaders need something in between. They need to understand concepts well enough to make informed decisions without becoming ML researchers.</p>
+            
+            <p>Additionally, most AI content is not structured for how people actually consume information today. Search engines and AI assistants increasingly synthesize answers from multiple sources. Content needs to be structured for this reality.</p>
+            
+            <h2>What Makes This Different</h2>
+            
+            <h3>Answer-First Structure</h3>
+            <p>Every page answers the core question in the first 150 words. No preambles, no history lessons, no marketing. If you read nothing else, you get the complete answer.</p>
+            
+            <p>This structure works for busy readers who need quick answers and for AI systems that prioritize early content when synthesizing responses.</p>
+            
+            <h3>Reference, Not Blog</h3>
+            <p>These pages are written as reference material, not storytelling. Short paragraphs, clear sections, no narrative arc. This format makes information scannable and easy to find again later.</p>
+            
+            <h3>Interconnected Knowledge</h3>
+            <p>AI concepts do not exist in isolation. Each page links to related concepts where they naturally connect. This creates a knowledge graph rather than isolated articles.</p>
+            
+            <p>Internal linking helps readers understand relationships between concepts and signals to search engines that this site has topical authority.</p>
+            
+            <h3>Schema Markup</h3>
+            <p>Every page includes structured data markup using Schema.org standards. Article schemas provide metadata. FAQ schemas structure questions and answers. Breadcrumb schemas show information hierarchy.</p>
+            
+            <p>This structured data helps search engines understand page content and enables rich results like FAQ expansions in search.</p>
+            
+            <h2>Who This Helps</h2>
+            
+            <p><strong>Product Managers</strong> need to understand AI capabilities and limitations when planning features. Quick, accurate explanations help them make better roadmap decisions.</p>
+            
+            <p><strong>Founders</strong> evaluating AI tools or building AI products need to cut through hype. Clear concept explanations help them ask better questions of vendors and engineers.</p>
+            
+            <p><strong>Technical Leaders</strong> who are not AI specialists need to understand what their teams are building. These explanations provide the foundation for architectural discussions.</p>
+            
+            <p><strong>Engineers</strong> working with AI for the first time need practical context. The applied examples show how concepts work in production systems.</p>
+            
+            <h2>What I Learned Building This</h2>
+            
+            <h3>Content Structure Matters More Than Volume</h3>
+            <p>Five well-structured pages beat fifty poorly organized ones. Clear hierarchy, front-loaded answers, and consistent formatting make content more usable and more discoverable.</p>
+            
+            <h3>Internal Linking Creates Authority</h3>
+            <p>Connecting related concepts through contextual links helps readers and search engines understand topic relationships. Every page should link to at least three related pages.</p>
+            
+            <h3>Schema Is Not Optional</h3>
+            <p>Structured data significantly improves how search engines and AI tools understand and display content. Manual implementation is tedious but gives complete control over what information is emphasized.</p>
+            
+            <h3>Answer Engines Change Content Strategy</h3>
+            <p>Traditional SEO optimizes for ranking. Answer Engine Optimization (AEO) optimizes for being cited in AI-generated responses. These require different approaches to structure and formatting.</p>
+            
+            <h2>Design Decisions</h2>
+            
+            <div class="decision-list">
+                <div class="decision-item">
+                    <strong>Plain HTML and CSS</strong>
+                    <p>No framework complexity. Easy to deploy anywhere. Fast page loads. Full control over markup for schema optimization.</p>
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Mobile-First Responsive</strong>
+                    <p>Most readers access content on mobile. The design works well on small screens without sacrificing desktop experience.</p>
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Minimal Visual Design</strong>
+                    <p>Clean typography and plenty of whitespace. No distracting animations or heavy graphics. Content is the focus.</p>
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Consistent Page Structure</strong>
+                    <p>Every concept page follows the same template. Readers know where to find information. Search engines can easily parse the structure.</p>
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Fast Load Times</strong>
+                    <p>Single CSS file, no JavaScript, optimized HTML. Pages load instantly even on slow connections.</p>
+                </div>
+            </div>
+            
+            <h2>Technical Implementation</h2>
+            <p>The site uses semantic HTML5 with manually implemented Schema.org markup. CSS handles all styling with no JavaScript required.</p>
+            
+            <p>Each page includes three schema types: Article for content metadata, FAQPage for questions and answers, and Breadcrumb for navigation. All schemas have been validated using Google's Rich Results Test.</p>
+            
+            <p>Internal links use descriptive anchor text and connect concepts where they naturally relate. The site structure ensures no page is more than three clicks from the homepage.</p>
+            
+            <h2>What Comes Next</h2>
+            <p>Potential expansions include more applied examples showing AI concepts in production systems, comparison guides for choosing between different approaches, and case studies of real implementations.</p>
+            
+            <p>The core focus remains clarity and structure over volume. Better to have five excellent pages than fifty mediocre ones.</p>
+            
+            <div class="related-box">
+                <h3>Explore the Site</h3>
+                <div class="related-links">
+                    <a href="index.html#concepts" class="related-link">
+                        <div class="related-link-title">Core Concepts</div>
+                        <div class="related-link-desc">Start with fundamentals</div>
+                    </a>
+                    <a href="rag-system-in-practice.html" class="related-link">
+                        <div class="related-link-title">Applied Example</div>
+                        <div class="related-link-desc">See concepts in practice</div>
+                    </a>
+                    <a href="case-study.html" class="related-link">
+                        <div class="related-link-title">Case Study</div>
+                        <div class="related-link-desc">How this was built</div>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AI Fundamentals. Educational resource for understanding AI concepts.</p>
+            <div class="footer-links">
+                <a href="what-is-prompt-chaining.html">Prompt Chaining</a>
+                <a href="what-is-retrieval-augmented-generation.html">RAG</a>
+                <a href="what-is-an-llm-agent.html">LLM Agents</a>
+                <a href="what-is-fine-tuning.html">Fine-Tuning</a>
+                <a href="what-is-an-embedding.html">Embeddings</a>
+                <a href="about.html">About</a>
+                <a href="case-study.html">Case Study</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

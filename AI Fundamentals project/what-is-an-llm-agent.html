@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is an LLM Agent? | AI Fundamentals</title>
+    <meta name="description" content="An LLM agent is an AI system powered by a large language model that can autonomously plan, reason, and take actions, often using tools or other systems">
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ai-fundamentals.example.com"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "What is an LLM Agent",
+            "item": "https://ai-fundamentals.example.com/what-is-an-llm-agent"
+        }]
+    }
+    </script>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What is an LLM Agent?",
+        "description": "A clear explanation of LLM agents in AI systems",
+        "image": "https://ai-fundamentals.example.com/images/llm-agent.png",
+        "author": {
+            "@type": "Organization",
+            "name": "AI Fundamentals"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AI Fundamentals",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ai-fundamentals.example.com/logo.png"
+            }
+        },
+        "datePublished": "2025-01-20",
+        "dateModified": "2025-01-21",
+        "wordCount": 1150,
+        "inLanguage": "en-US",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ai-fundamentals.example.com/what-is-an-llm-agent"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What makes an LLM agent different from a regular chatbot?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Regular chatbots only respond to messages. LLM agents can take actions, use external tools, make decisions about what to do next, and work toward completing complex tasks autonomously."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What tools can LLM agents use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "LLM agents can use any tool with a defined interface including search engines, databases, APIs, code interpreters, web browsers, and custom functions. The agent decides when and how to use each tool based on the task."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are LLM agents reliable for production use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "LLM agents work well for specific constrained tasks with clear success criteria. For critical applications, implement safety checks, validate agent actions, and include human approval steps for high-stakes decisions."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">AI</div>
+                <span class="logo-text">AI Fundamentals</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#concepts">Concepts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-study.html">Case Study</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / What is an LLM Agent
+        </div>
+        
+        <main>
+            <h1>What is an LLM Agent?</h1>
+            
+            <div class="definition">
+                <strong>Definition:</strong> An LLM agent is an AI system powered by a large language model that can autonomously plan, reason, and take actions, often using tools or other systems.
+            </div>
+            
+            <div class="answer-block">
+                <p>LLM agents combine language models with the ability to interact with external systems. Unlike a basic chatbot that only generates text responses, an agent can search databases, call APIs, execute code, browse websites, and perform other actions. The agent decides which actions to take based on the task and the results of previous actions.</p>
+            </div>
+            
+            <h2>How LLM Agents Work</h2>
+            <p>An LLM agent operates in a loop. First, it receives a task or goal. The agent then reasons about what action to take next. It executes that action using one of its available tools. The agent observes the result and decides whether the task is complete or what to do next.</p>
+            
+            <p>This cycle continues until the agent completes the task or determines it cannot proceed. The key difference from <a href="what-is-prompt-chaining.html">prompt chaining</a> is that the agent decides the sequence of steps dynamically rather than following a predetermined path.</p>
+            
+            <div class="diagram">
+                <div class="diagram-title">Agent Loop</div>
+                <div class="diagram-content">
+                    Task → Reasoning<br>
+                    ↓<br>
+                    Choose Action<br>
+                    ↓<br>
+                    Execute Tool<br>
+                    ↓<br>
+                    Observe Result<br>
+                    ↓<br>
+                    Task Complete? No → Back to Reasoning<br>
+                    Task Complete? Yes → Done
+                </div>
+            </div>
+            
+            <h2>Why LLM Agents Matter</h2>
+            <p>LLM agents enable AI systems to handle complex tasks that require multiple steps and decision points. Instead of programming every possible path, you give the agent tools and let it figure out how to accomplish the goal.</p>
+            
+            <p>Agents reduce the need for extensive custom code. If you need to add a new capability, you provide the agent with a new tool rather than rewriting your entire workflow. This makes AI systems more flexible and easier to extend.</p>
+            
+            <p>Organizations use agents for tasks like research, data analysis, customer support, and automation. An agent can search through documents using <a href="what-is-retrieval-augmented-generation.html">RAG</a>, analyze the results, generate a report, and save it to the right location without human intervention at each step.</p>
+            
+            <h2>Example of an LLM Agent</h2>
+            <p>Consider an agent tasked with researching a competitor. Here is how it might work:</p>
+            
+            <p><strong>Task:</strong> "Research Acme Corp and create a summary of their recent product launches"</p>
+            
+            <p><strong>Agent reasoning:</strong> "I need to find recent information about Acme Corp products"</p>
+            
+            <p><strong>Action 1:</strong> Search the web for "Acme Corp product launches 2025"</p>
+            <p><strong>Result 1:</strong> Found 5 relevant articles</p>
+            
+            <p><strong>Action 2:</strong> Read the top 3 articles and extract key information</p>
+            <p><strong>Result 2:</strong> Identified 2 new products with launch dates and features</p>
+            
+            <p><strong>Action 3:</strong> Generate structured summary document</p>
+            <p><strong>Result 3:</strong> Summary created</p>
+            
+            <p><strong>Task complete.</strong> The agent determined each step based on what it learned, not from a pre-programmed sequence.</p>
+            
+            <h2>Common Mistakes with LLM Agents</h2>
+            <p>Giving agents too many tools at once reduces performance. The agent wastes time considering irrelevant options. Start with a small set of essential tools and expand only when needed.</p>
+            
+            <p>Poor tool descriptions confuse agents. Each tool needs a clear description of what it does and when to use it. Vague descriptions cause the agent to misuse tools or miss opportunities to apply them.</p>
+            
+            <p>No safety checks create risks. Agents can take unexpected actions, especially for complex tasks. Always validate critical actions before execution and set boundaries on what agents can do autonomously.</p>
+            
+            <h2>Related Concepts</h2>
+            <p>LLM agents frequently use <a href="what-is-prompt-chaining.html">prompt chaining</a> internally to break down complex reasoning into steps. The difference is that agents choose the chains dynamically based on the situation.</p>
+            
+            <p><a href="what-is-retrieval-augmented-generation.html">Retrieval augmented generation</a> serves as a common tool for agents that need to access knowledge bases or documents during task execution.</p>
+            
+            <p><a href="what-is-fine-tuning.html">Fine-tuning</a> can improve agent performance on specific types of tasks by training the underlying model on relevant examples of tool use and decision making.</p>
+            
+            <div class="related-box">
+                <h3>Related Topics</h3>
+                <div class="related-links">
+                    <a href="what-is-prompt-chaining.html" class="related-link">
+                        <div class="related-link-title">Prompt Chaining</div>
+                        <div class="related-link-desc">Sequential AI steps</div>
+                    </a>
+                    <a href="what-is-retrieval-augmented-generation.html" class="related-link">
+                        <div class="related-link-title">RAG</div>
+                        <div class="related-link-desc">Knowledge retrieval</div>
+                    </a>
+                    <a href="what-is-fine-tuning.html" class="related-link">
+                        <div class="related-link-title">Fine-Tuning</div>
+                        <div class="related-link-desc">Model customization</div>
+                    </a>
+                    <a href="what-is-an-embedding.html" class="related-link">
+                        <div class="related-link-title">Embeddings</div>
+                        <div class="related-link-desc">Semantic representation</div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="faq">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What makes an LLM agent different from a regular chatbot?</div>
+                    <div class="faq-answer">Regular chatbots only respond to messages. LLM agents can take actions, use external tools, make decisions about what to do next, and work toward completing complex tasks autonomously.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What tools can LLM agents use?</div>
+                    <div class="faq-answer">LLM agents can use any tool with a defined interface including search engines, databases, APIs, code interpreters, web browsers, and custom functions. The agent decides when and how to use each tool based on the task.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Are LLM agents reliable for production use?</div>
+                    <div class="faq-answer">LLM agents work well for specific constrained tasks with clear success criteria. For critical applications, implement safety checks, validate agent actions, and include human approval steps for high-stakes decisions.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AI Fundamentals. Educational resource for understanding AI concepts.</p>
+            <div class="footer-links">
+                <a href="what-is-prompt-chaining.html">Prompt Chaining</a>
+                <a href="what-is-retrieval-augmented-generation.html">RAG</a>
+                <a href="what-is-an-llm-agent.html">LLM Agents</a>
+                <a href="what-is-fine-tuning.html">Fine-Tuning</a>
+                <a href="what-is-an-embedding.html">Embeddings</a>
+                <a href="about.html">About</a>
+                <a href="case-study.html">Case Study</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

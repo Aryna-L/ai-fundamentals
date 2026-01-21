@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Build a RAG System in Practice | AI Fundamentals</title>
+    <meta name="description" content="A practical guide to designing and implementing a production RAG system with retrieval, generation, error handling, and evaluation.">
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ai-fundamentals.example.com"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "RAG System in Practice",
+            "item": "https://ai-fundamentals.example.com/rag-system-in-practice"
+        }]
+    }
+    </script>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Build a RAG System in Practice",
+        "description": "A practical guide to implementing production RAG systems",
+        "image": "https://ai-fundamentals.example.com/images/rag-practice.png",
+        "author": {
+            "@type": "Organization",
+            "name": "AI Fundamentals"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AI Fundamentals",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ai-fundamentals.example.com/logo.png"
+            }
+        },
+        "datePublished": "2025-01-21",
+        "dateModified": "2025-01-21",
+        "wordCount": 1800,
+        "inLanguage": "en-US",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ai-fundamentals.example.com/rag-system-in-practice"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the most common failure point in RAG systems?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Poor retrieval quality is the most common failure point. If the system retrieves irrelevant documents, even the best language model cannot generate a good answer. Focus on retrieval quality first."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you handle queries when no relevant documents are found?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Implement a confidence threshold. If retrieval scores fall below the threshold, return a message like 'I could not find relevant information in our knowledge base' rather than generating an answer from irrelevant context."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should you use multiple retrieval strategies?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, hybrid retrieval combining semantic search with keyword search often performs better than either alone. Start with semantic search, then add keyword matching if needed."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">AI</div>
+                <span class="logo-text">AI Fundamentals</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#concepts">Concepts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-study.html">Case Study</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / RAG System in Practice
+        </div>
+        
+        <main>
+            <h1>How to Build a RAG System in Practice</h1>
+            
+            <div class="definition">
+                <strong>Overview:</strong> This guide walks through designing a production RAG system for a customer support knowledge base, including document processing, retrieval, generation, error handling, and evaluation.
+            </div>
+            
+            <div class="answer-block">
+                <p>A production RAG system requires more than connecting a vector database to an LLM. You need document preprocessing, retrieval tuning, fallback strategies, and quality monitoring. This guide shows how to design each component for reliability.</p>
+            </div>
+            
+            <h2>System Architecture</h2>
+            <p>A production RAG system has five main components working together:</p>
+            
+            <ol>
+                <li><strong>Document Processing Pipeline</strong> - Ingests, chunks, and embeds knowledge base content</li>
+                <li><strong>Retrieval Layer</strong> - Searches for relevant documents using semantic and keyword matching</li>
+                <li><strong>Context Assembler</strong> - Ranks and formats retrieved documents for the LLM</li>
+                <li><strong>Generation Layer</strong> - Produces answers using retrieved context</li>
+                <li><strong>Evaluation System</strong> - Monitors quality and catches failures</li>
+            </ol>
+            
+            <div class="diagram">
+                <div class="diagram-title">RAG System Flow</div>
+                <div class="diagram-content">
+                    User Query<br>
+                    ↓<br>
+                    Query Processing (rewrite, expand)<br>
+                    ↓<br>
+                    Retrieval (semantic + keyword)<br>
+                    ↓<br>
+                    Score & Filter Results<br>
+                    ↓<br>
+                    Assemble Context<br>
+                    ↓<br>
+                    LLM Generation<br>
+                    ↓<br>
+                    Quality Check<br>
+                    ↓<br>
+                    Response to User
+                </div>
+            </div>
+            
+            <h2>Document Processing Pipeline</h2>
+            <p>Before retrieval works, documents need proper preparation. Poor document processing causes most RAG failures.</p>
+            
+            <h3>Chunking Strategy</h3>
+            <p>Split documents into chunks small enough to be meaningful but large enough to contain complete thoughts. For technical documentation, 300-500 tokens per chunk works well.</p>
+            
+            <p>Use semantic chunking where possible. Break at section headers, paragraph boundaries, or logical topic shifts rather than arbitrary character counts. Each chunk should be independently understandable.</p>
+            
+            <p>Add metadata to chunks including document title, section, date, and any relevant tags. This metadata helps with filtering and ranking during retrieval.</p>
+            
+            <h3>Embedding Generation</h3>
+            <p>Generate <a href="what-is-an-embedding.html">embeddings</a> for each chunk using a model optimized for your domain. For general technical content, models like OpenAI text-embedding-3 or sentence-transformers work well.</p>
+            
+            <p>Store both the embedding vector and the original text. You need the text for the LLM context and the vector for retrieval.</p>
+            
+            <h2>Retrieval Layer Design</h2>
+            <p>Retrieval makes or breaks your RAG system. Invest time here.</p>
+            
+            <h3>Hybrid Search</h3>
+            <p>Combine semantic search with keyword search. Semantic search finds conceptually similar content. Keyword search catches specific terms, codes, or names that embeddings might miss.</p>
+            
+            <p>Weight semantic results higher for conceptual questions. Weight keyword results higher for specific lookups like product codes or error messages.</p>
+            
+            <h3>Query Processing</h3>
+            <p>Before retrieval, process the user query. Expand acronyms, correct typos, and identify key entities. This improves retrieval accuracy.</p>
+            
+            <p>For ambiguous queries, consider generating multiple query variations and retrieving for each. Combine and deduplicate the results.</p>
+            
+            <h3>Filtering and Ranking</h3>
+            <p>Set a minimum relevance score threshold. If no documents exceed this threshold, do not attempt to generate an answer. Return a message that the information is not available.</p>
+            
+            <p>Retrieve 20-30 candidates, then re-rank the top 5-10 using a cross-encoder model for better accuracy. This two-stage approach balances speed and quality.</p>
+            
+            <h2>Context Assembly</h2>
+            <p>You have retrieved relevant documents. Now prepare them for the LLM.</p>
+            
+            <p>Format each retrieved chunk with its metadata. Include the source document, section, and date. This helps the LLM cite sources and understand freshness.</p>
+            
+            <p>Order chunks by relevance score, but consider diversity. If the top 5 results are all from the same document, include a result from a different source to provide broader context.</p>
+            
+            <p>Respect token limits. Count tokens in your prompt template, the user query, and retrieved context. Leave room for the generated response. Typical allocation: 30% prompt, 50% context, 20% response buffer.</p>
+            
+            <h2>Generation with Safeguards</h2>
+            <p>The LLM generates the answer using retrieved context.</p>
+            
+            <h3>Prompt Design</h3>
+            <p>Your prompt should instruct the model to only use the provided context, cite sources, and admit when it cannot answer from the given information.</p>
+            
+            <p>Example prompt structure:</p>
+            <div class="diagram">
+                <div class="diagram-content" style="text-align: left; max-width: 600px; margin: 0 auto;">
+You are a customer support assistant. Answer the user's question using ONLY the information in the context below. If the context does not contain enough information, say so.<br><br>
+
+Context:<br>
+[Retrieved documents here]<br><br>
+
+User Question: [question]<br><br>
+
+Instructions:<br>
+- Answer directly and concisely<br>
+- Cite which document you used<br>
+- If unsure, say you don't have that information
+                </div>
+            </div>
+            
+            <h3>Response Validation</h3>
+            <p>Check the generated response before returning it to the user. Verify that it cites sources, does not contradict the retrieved context, and answers the question.</p>
+            
+            <p>Flag responses that hedge excessively or provide generic answers. These often indicate retrieval failure.</p>
+            
+            <h2>Error Handling and Fallbacks</h2>
+            <p>Production systems need fallback strategies for common failure modes.</p>
+            
+            <h3>No Relevant Documents Found</h3>
+            <p>When retrieval confidence is low, skip generation. Return: "I could not find information about that in our knowledge base. Let me connect you with a human agent."</p>
+            
+            <h3>Retrieval Returns Contradictory Documents</h3>
+            <p>If top-ranked documents contradict each other, either return the most recent document or escalate to a human. Do not let the LLM try to reconcile contradictions.</p>
+            
+            <h3>Generation Fails or Times Out</h3>
+            <p>Implement retries with exponential backoff. If generation fails after retries, return the retrieved documents directly with a message like "Here are the relevant help articles."</p>
+            
+            <h3>User Question Outside Scope</h3>
+            <p>Train a classifier to detect off-topic questions. Route these to a fallback flow rather than attempting RAG retrieval.</p>
+            
+            <h2>Evaluation and Monitoring</h2>
+            <p>Measure system performance continuously. Track these metrics:</p>
+            
+            <ul>
+                <li><strong>Retrieval Precision</strong> - What percentage of retrieved documents are actually relevant?</li>
+                <li><strong>Retrieval Recall</strong> - Does the system find all relevant documents?</li>
+                <li><strong>Answer Quality</strong> - Human ratings on helpfulness and accuracy</li>
+                <li><strong>Citation Rate</strong> - Does the response cite sources?</li>
+                <li><strong>Fallback Rate</strong> - How often does the system admit it cannot answer?</li>
+            </ul>
+            
+            <p>Create a test set of questions with known correct answers. Run this test set weekly to catch regressions.</p>
+            
+            <p>Log all queries, retrieved documents, and responses. Sample and manually review 50-100 interactions per week to find issues.</p>
+            
+            <h2>Integration with Prompt Chaining</h2>
+            <p>RAG often works better as part of a larger <a href="what-is-prompt-chaining.html">prompt chain</a>. For complex queries, use this pattern:</p>
+            
+            <ol>
+                <li><strong>Chain Step 1:</strong> Analyze the user query, identify intent and key entities</li>
+                <li><strong>Chain Step 2:</strong> Perform RAG retrieval using the analyzed query</li>
+                <li><strong>Chain Step 3:</strong> Generate the answer using retrieved context</li>
+                <li><strong>Chain Step 4:</strong> Format the answer with citations and next steps</li>
+            </ol>
+            
+            <p>This separation lets you optimize each step independently and provides clearer debugging when something fails.</p>
+            
+            <h2>Real Example: Support Bot</h2>
+            <p>Here is how the system works for a customer question:</p>
+            
+            <p><strong>User asks:</strong> "My API key is giving a 401 error"</p>
+            
+            <p><strong>Query Processing:</strong> Identifies "API authentication issue" as the intent</p>
+            
+            <p><strong>Retrieval:</strong> Finds 3 relevant articles about API key configuration, authentication errors, and troubleshooting</p>
+            
+            <p><strong>Context Assembly:</strong> Formats the 3 articles with titles and relevance scores</p>
+            
+            <p><strong>Generation:</strong> LLM synthesizes an answer explaining that 401 means invalid credentials, provides steps to regenerate the key, and cites "API Authentication Guide"</p>
+            
+            <p><strong>Validation:</strong> Checks that the response cites sources and addresses the error code</p>
+            
+            <p><strong>Response:</strong> "A 401 error means your API key is invalid. Here's how to fix it: [steps]. Source: API Authentication Guide"</p>
+            
+            <h2>Related Concepts</h2>
+            <p>Building production RAG systems requires understanding <a href="what-is-an-embedding.html">embeddings</a> for retrieval quality, <a href="what-is-prompt-chaining.html">prompt chaining</a> for complex workflows, and <a href="what-is-fine-tuning.html">fine-tuning</a> to improve model performance on your domain.</p>
+            
+            <p><a href="what-is-an-llm-agent.html">LLM agents</a> can use RAG as one of their tools, retrieving information when needed during autonomous task execution.</p>
+            
+            <div class="related-box">
+                <h3>Related Topics</h3>
+                <div class="related-links">
+                    <a href="what-is-retrieval-augmented-generation.html" class="related-link">
+                        <div class="related-link-title">What is RAG?</div>
+                        <div class="related-link-desc">Core RAG concepts</div>
+                    </a>
+                    <a href="what-is-an-embedding.html" class="related-link">
+                        <div class="related-link-title">Embeddings</div>
+                        <div class="related-link-desc">Power RAG retrieval</div>
+                    </a>
+                    <a href="what-is-prompt-chaining.html" class="related-link">
+                        <div class="related-link-title">Prompt Chaining</div>
+                        <div class="related-link-desc">Multi-step RAG flows</div>
+                    </a>
+                    <a href="what-is-fine-tuning.html" class="related-link">
+                        <div class="related-link-title">Fine-Tuning</div>
+                        <div class="related-link-desc">Improve RAG quality</div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="faq">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What is the most common failure point in RAG systems?</div>
+                    <div class="faq-answer">Poor retrieval quality is the most common failure point. If the system retrieves irrelevant documents, even the best language model cannot generate a good answer. Focus on retrieval quality first.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How do you handle queries when no relevant documents are found?</div>
+                    <div class="faq-answer">Implement a confidence threshold. If retrieval scores fall below the threshold, return a message like "I could not find relevant information in our knowledge base" rather than generating an answer from irrelevant context.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Should you use multiple retrieval strategies?</div>
+                    <div class="faq-answer">Yes, hybrid retrieval combining semantic search with keyword search often performs better than either alone. Start with semantic search, then add keyword matching if needed.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AI Fundamentals. Educational resource for understanding AI concepts.</p>
+            <div class="footer-links">
+                <a href="what-is-prompt-chaining.html">Prompt Chaining</a>
+                <a href="what-is-retrieval-augmented-generation.html">RAG</a>
+                <a href="what-is-an-llm-agent.html">LLM Agents</a>
+                <a href="what-is-fine-tuning.html">Fine-Tuning</a>
+                <a href="what-is-an-embedding.html">Embeddings</a>
+                <a href="about.html">About</a>
+                <a href="case-study.html">Case Study</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

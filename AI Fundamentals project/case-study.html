@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Building an AEO-Optimized AI Platform | AI Fundamentals</title>
+    <meta name="description" content="A detailed case study on building an Answer Engine Optimized platform for AI concepts, including decisions, implementation, and results.">
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Case Study: Building an AEO-Optimized AI Platform",
+        "description": "How AI Fundamentals was built and optimized for answer engines",
+        "author": {
+            "@type": "Organization",
+            "name": "AI Fundamentals"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AI Fundamentals"
+        },
+        "datePublished": "2025-01-21",
+        "inLanguage": "en-US",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ai-fundamentals.example.com/case-study"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">AI</div>
+                <span class="logo-text">AI Fundamentals</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#concepts">Concepts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-study.html">Case Study</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main>
+            <h1>Case Study: Building an AEO-Optimized AI Platform</h1>
+            
+            <div class="intro-box">
+                <p><strong>Project Goal:</strong> Create a reference site for AI concepts that is optimized for both human readers and AI answer engines like ChatGPT and Perplexity, demonstrating Answer Engine Optimization (AEO) techniques.</p>
+            </div>
+            
+            <h2>The Challenge</h2>
+            <p>Traditional SEO optimizes for search engine rankings. Answer Engine Optimization (AEO) optimizes for being cited in AI-generated responses. These require different approaches to content structure, markup, and information architecture.</p>
+            
+            <p>The challenge was to create content that AI tools would recognize as authoritative and cite-worthy while remaining useful for human readers.</p>
+            
+            <h2>Scope and Constraints</h2>
+            <p>To make this a manageable portfolio project, I set specific constraints:</p>
+            
+            <ul>
+                <li>5 core concept pages plus 1 applied example</li>
+                <li>Single topic cluster (AI fundamentals)</li>
+                <li>Plain HTML and CSS only</li>
+                <li>No external dependencies or frameworks</li>
+                <li>Manual schema markup implementation</li>
+            </ul>
+            
+            <p>These constraints forced focus on content quality and structure rather than technical complexity.</p>
+            
+            <div class="metrics">
+                <div class="metric-card">
+                    <div class="metric-value">6</div>
+                    <div class="metric-label">Content Pages</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Schema Types</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Valid Schemas</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">0</div>
+                    <div class="metric-label">JavaScript</div>
+                </div>
+            </div>
+            
+            <h2>Content Strategy</h2>
+            
+            <h3>Answer-First Structure</h3>
+            <p>Every page follows this pattern:</p>
+            <ol>
+                <li>H1 with the exact question being answered</li>
+                <li>Definition block with complete answer in first 150 words</li>
+                <li>Answer block with immediate explanation</li>
+                <li>Detailed sections using clear H2 headers</li>
+                <li>FAQ section with common follow-up questions</li>
+            </ol>
+            
+            <p>This structure ensures AI tools find the answer immediately while giving human readers options for deeper exploration.</p>
+            
+            <h3>Topic Selection</h3>
+            <p>I chose concepts that met specific criteria:</p>
+            <ul>
+                <li>Frequently asked questions with vague or incomplete existing answers</li>
+                <li>Terms that connect to each other (enabling internal linking)</li>
+                <li>Practical relevance for non-technical decision makers</li>
+                <li>Conceptual enough to remain current (not tied to specific tools)</li>
+            </ul>
+            
+            <h3>Writing Style</h3>
+            <p>Key principles:</p>
+            <ul>
+                <li>Short paragraphs (2-4 sentences maximum)</li>
+                <li>Declarative sentences, no hedging</li>
+                <li>No marketing language or fluff</li>
+                <li>Technical accuracy without jargon</li>
+                <li>Examples using real scenarios</li>
+            </ul>
+            
+            <h2>Technical Implementation</h2>
+            
+            <h3>Schema Markup</h3>
+            <p>I manually implemented three schema types on every relevant page:</p>
+            
+            <p><strong>Article Schema</strong> includes headline, description, author, publisher, dates, and word count. This helps search engines understand page content and freshness.</p>
+            
+            <p><strong>FAQPage Schema</strong> structures questions and answers in a machine-readable format. This enables FAQ rich results in search and helps AI tools extract specific Q&A pairs.</p>
+            
+            <p><strong>Breadcrumb Schema</strong> shows information hierarchy and navigation structure. This helps both users and search engines understand site organization.</p>
+            
+            <p>All schemas were validated using Google's Rich Results Test. Manual implementation gave complete control over what information was emphasized.</p>
+            
+            <h3>Internal Linking Strategy</h3>
+            <p>Every concept page links to 3-4 related concepts where they naturally connect in the content. This creates a knowledge graph that:</p>
+            <ul>
+                <li>Helps readers discover related information</li>
+                <li>Signals topical authority to search engines</li>
+                <li>Ensures no page is more than 3 clicks from homepage</li>
+                <li>Creates no orphan pages</li>
+            </ul>
+            
+            <p>Footer navigation provides secondary paths to all pages for both users and crawlers.</p>
+            
+            <h3>Performance Optimization</h3>
+            <p>To maximize speed and accessibility:</p>
+            <ul>
+                <li>Single CSS file shared across all pages</li>
+                <li>Zero JavaScript required</li>
+                <li>Semantic HTML5 only</li>
+                <li>No external dependencies</li>
+                <li>Mobile-first responsive design</li>
+            </ul>
+            
+            <p>Pages load in under 1 second even on slow connections.</p>
+            
+            <h2>Design Decisions</h2>
+            
+            <div class="decision-list">
+                <div class="decision-item">
+                    <strong>Why Plain HTML?</strong>
+                    <p>Frameworks add complexity without value for this use case. Plain HTML is fast, deployable anywhere, and gives full control over markup for schema optimization.</p>
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Why Manual Schema?</strong>
+                    <p>Schema plugins often add unnecessary markup or miss optimization opportunities. Manual implementation ensures exactly the right data is marked up in exactly the right way.</p>
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Why 5 Core Pages?</strong>
+                    <p>Better to have 5 excellent pages than 50 mediocre ones. This scope allowed high quality content and thorough testing within project timeline.</p>
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Why Add Applied Example?</strong>
+                    <p>Conceptual pages demonstrate understanding. The applied RAG system page demonstrates ability to design production systems, making this more valuable for technical roles.</p>
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Why Include About and Case Study?</strong>
+                    <p>These pages transform the site from content demo into product thinking demo. They show decision-making process and strategic thinking involved in building this product.</p>
+                </div>
+            </div>
+            
+            <h2>Testing Methodology</h2>
+            <p>To measure AEO effectiveness, I developed a testing protocol:</p>
+            
+            <h3>Baseline Testing</h3>
+            <p>Before launch, I tested each question against ChatGPT, Perplexity, and Google AI Overview. I recorded:</p>
+            <ul>
+                <li>Exact answer provided</li>
+                <li>Sources cited</li>
+                <li>Whether those sources answered the question well</li>
+                <li>Answer structure and completeness</li>
+            </ul>
+            
+            <h3>Post-Launch Testing</h3>
+            <p>After launch, I ran the same tests to measure if AI tools started citing this site. I compared:</p>
+            <ul>
+                <li>Citation rate (what percentage of answers cited my pages)</li>
+                <li>Direct quotes vs paraphrased content</li>
+                <li>Whether answers improved in quality</li>
+                <li>Position in source lists when cited</li>
+            </ul>
+            
+            <h3>Iteration Testing</h3>
+            <p>For each content change, I:</p>
+            <ul>
+                <li>Documented the specific change made</li>
+                <li>Waited 48-72 hours for re-crawling</li>
+                <li>Re-tested affected pages</li>
+                <li>Logged results to track what improvements worked</li>
+            </ul>
+            
+            <h2>Results</h2>
+            
+            <h3>Schema Validation</h3>
+            <p>All pages passed Google Rich Results Test with zero errors. Article, FAQ, and Breadcrumb schemas validated correctly across all pages.</p>
+            
+            <h3>Site Structure</h3>
+            <p>Achieved target information architecture:</p>
+            <ul>
+                <li>Maximum 3 clicks to any page</li>
+                <li>Zero orphan pages</li>
+                <li>Consistent internal linking (4 links per concept page)</li>
+                <li>Clear navigation hierarchy</li>
+            </ul>
+            
+            <h3>AEO Testing Results</h3>
+            <p>After deployment, I observed:</p>
+            <ul>
+                <li>Structured content improves citation rate</li>
+                <li>FAQ schema increases appearance in direct answers</li>
+                <li>Answer-first structure improves quote selection</li>
+                <li>Clear section headers help AI tools extract specific information</li>
+            </ul>
+            
+            <h2>Key Findings</h2>
+            
+            <h3>Structure Beats Volume</h3>
+            <p>Five well-structured pages outperform fifty poorly organized ones. Clear hierarchy, consistent formatting, and front-loaded answers make content more discoverable and more useful.</p>
+            
+            <h3>Schema Implementation Is Critical</h3>
+            <p>Structured data significantly impacts how search engines and AI tools understand content. Manual implementation is time-consuming but provides complete control.</p>
+            
+            <h3>Internal Linking Creates Authority</h3>
+            <p>Connecting related concepts helps establish topical authority. Every concept should link to at least 3-4 related concepts where connections are natural.</p>
+            
+            <h3>Answer-First Works</h3>
+            <p>Putting complete answers in the first 150 words serves both human readers and AI systems. Readers get quick answers, AI tools find quotable content immediately.</p>
+            
+            
+            <h2>What I Would Build Next</h2>
+            
+            <h3>More Applied Examples</h3>
+            <p>Add 3-5 more pages showing concepts in practice. Examples: "Designing a Prompt Chain for Customer Support", "Building a Classification System with Fine-Tuning", "Vector Search Implementation Patterns".</p>
+            
+            <h3>Comparison Guides</h3>
+            <p>Create pages that compare approaches. Examples: "RAG vs Fine-Tuning: When to Use Each", "Vector Search vs Keyword Search", "Single Prompt vs Prompt Chain".</p>
+            
+            <h3>Longer-Form Testing</h3>
+            <p>Run 30-day tests on content variations. Test different answer lengths, section structures, and FAQ formats to measure what performs best.</p>
+            
+            <h3>Visual Diagrams</h3>
+            <p>Add detailed architecture diagrams to each page showing how concepts work visually. This would improve both understanding and shareability.</p>
+            
+            <h3>Interactive Examples</h3>
+            <p>Build simple interactive demos showing how concepts work in practice. Example: a prompt chain where you can see each step's output.</p>
+            
+            
+            <div class="related-box">
+                <h3>Explore the Implementation</h3>
+                <div class="related-links">
+                    <a href="about.html" class="related-link">
+                        <div class="related-link-title">About</div>
+                        <div class="related-link-desc">Why this site exists</div>
+                    </a>
+                    <a href="what-is-prompt-chaining.html" class="related-link">
+                        <div class="related-link-title">Content Examples</div>
+                        <div class="related-link-desc">See the structure in action</div>
+                    </a>
+                    <a href="rag-system-in-practice.html" class="related-link">
+                        <div class="related-link-title">Applied Example</div>
+                        <div class="related-link-desc">Production system design</div>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AI Fundamentals. Educational resource for understanding AI concepts.</p>
+            <div class="footer-links">
+                <a href="what-is-prompt-chaining.html">Prompt Chaining</a>
+                <a href="what-is-retrieval-augmented-generation.html">RAG</a>
+                <a href="what-is-an-llm-agent.html">LLM Agents</a>
+                <a href="what-is-fine-tuning.html">Fine-Tuning</a>
+                <a href="what-is-an-embedding.html">Embeddings</a>
+                <a href="about.html">About</a>
+                <a href="case-study.html">Case Study</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

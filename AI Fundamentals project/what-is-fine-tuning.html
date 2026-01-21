@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Fine-Tuning? | AI Fundamentals</title>
+    <meta name="description" content="Fine-tuning is the process of training a pre-trained AI further on specific data to customize it for particular tasks, domains, or styles.">
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ai-fundamentals.example.com"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "What is Fine-Tuning",
+            "item": "https://ai-fundamentals.example.com/what-is-fine-tuning"
+        }]
+    }
+    </script>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What is Fine-Tuning?",
+        "description": "A clear explanation of fine-tuning AI models",
+        "image": "https://ai-fundamentals.example.com/images/fine-tuning.png",
+        "author": {
+            "@type": "Organization",
+            "name": "AI Fundamentals"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AI Fundamentals",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ai-fundamentals.example.com/logo.png"
+            }
+        },
+        "datePublished": "2025-01-20",
+        "dateModified": "2025-01-21",
+        "wordCount": 1100,
+        "inLanguage": "en-US",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ai-fundamentals.example.com/what-is-fine-tuning"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "When should you fine-tune instead of using prompt engineering?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fine-tune when you need consistent behavior across many requests, when prompts become too long or complex, when you need the model to learn new patterns or terminology, or when you require better performance on domain-specific tasks."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much data do you need for fine-tuning?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Basic fine-tuning can work with as few as 50-100 examples for simple tasks. More complex tasks or significant behavior changes typically require 500-1000 examples or more. Quality matters more than quantity."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does fine-tuning replace the original model knowledge?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, fine-tuning adds to the model's capabilities rather than replacing them. The model retains its original knowledge while learning new patterns or adapting to your specific use case."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">AI</div>
+                <span class="logo-text">AI Fundamentals</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#concepts">Concepts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-study.html">Case Study</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / What is Fine-Tuning
+        </div>
+        
+        <main>
+            <h1>What is Fine-Tuning?</h1>
+            
+            <div class="definition">
+                <strong>Definition:</strong> Fine-tuning is the process of training a pre-trained AI further on specific data to customize it for particular tasks, domains, or styles.
+            </div>
+            
+            <div class="answer-block">
+                <p>Fine-tuning starts with a model that already knows language and general knowledge from its initial training. You then train this model on a smaller, specialized dataset that teaches it your specific requirements. The model adjusts its parameters to perform better on your particular use case while retaining its broader capabilities.</p>
+            </div>
+            
+            <h2>How Fine-Tuning Works</h2>
+            <p>Pre-trained models learn from massive datasets containing general knowledge. Fine-tuning takes one of these models and continues training it on your specific examples. This process adjusts the model's internal weights to prioritize patterns found in your data.</p>
+            
+            <p>You prepare training data as input-output pairs that demonstrate the behavior you want. For example, if fine-tuning a model to write product descriptions, you would provide examples of product specifications paired with well-written descriptions.</p>
+            
+            <p>The model trains on these examples for several iterations, called epochs. Training parameters like learning rate control how much the model changes with each example. After training completes, you have a customized version of the original model.</p>
+            
+            <div class="diagram">
+                <div class="diagram-title">Fine-Tuning Process</div>
+                <div class="diagram-content">
+                    Pre-trained Model<br>
+                    ↓<br>
+                    + Your Training Data<br>
+                    ↓<br>
+                    Training Process<br>
+                    ↓<br>
+                    Fine-Tuned Model<br>
+                    (Customized for your task)
+                </div>
+            </div>
+            
+            <h2>Why Fine-Tuning Matters</h2>
+            <p>Fine-tuning improves model performance on specific tasks beyond what prompts alone can achieve. When you need consistent formatting, specialized terminology, or particular reasoning patterns, fine-tuning teaches the model these requirements directly.</p>
+            
+            <p>Organizations fine-tune models to match their brand voice, understand industry jargon, or follow specific workflows. A legal firm might fine-tune a model on legal documents to better understand case law references. A customer service company might fine-tune for consistent, helpful responses.</p>
+            
+            <p>Fine-tuning can also make models more efficient. A well fine-tuned model might need shorter prompts because it already understands context that would otherwise need explanation. This is useful for <a href="what-is-an-llm-agent.html">LLM agents</a> that make many model calls, as shorter prompts reduce costs and latency.</p>
+            
+            <h2>Example of Fine-Tuning</h2>
+            <p>Consider fine-tuning a model for a medical records system. Here is how it might work:</p>
+            
+            <p><strong>Base model capability:</strong> General medical knowledge from training data</p>
+            
+            <p><strong>Fine-tuning data:</strong> 1000 examples of your clinic's patient notes paired with standardized summaries in your required format</p>
+            
+            <p><strong>Training process:</strong> The model learns your specific terminology, format preferences, and summary style</p>
+            
+            <p><strong>Result:</strong> The fine-tuned model generates summaries that match your clinic's standards without needing detailed instructions in every prompt</p>
+            
+            <h2>Common Mistakes with Fine-Tuning</h2>
+            <p>Fine-tuning with low-quality training data creates a model that perpetuates errors. Every mistake in your training data teaches the model incorrect behavior. Clean, high-quality examples are essential for good results.</p>
+            
+            <p>Another mistake is fine-tuning when prompt engineering would work. Fine-tuning requires data preparation, training time, and ongoing model management. If you can achieve your goal with careful prompts or <a href="what-is-retrieval-augmented-generation.html">RAG</a>, those approaches are simpler.</p>
+            
+            <p>Overfitting happens when you train too long or on too little data. The model becomes excellent at your training examples but loses its ability to generalize. Balance training duration with dataset size and diversity.</p>
+            
+            <h2>Related Concepts</h2>
+            <p>Fine-tuning contrasts with <a href="what-is-retrieval-augmented-generation.html">retrieval augmented generation</a>, which provides external information at inference time rather than changing model weights. Many applications combine both approaches.</p>
+            
+            <p><a href="what-is-an-embedding.html">Embeddings</a> can be fine-tuned separately to improve semantic search for domain-specific terminology. This enhances RAG systems by helping them find more relevant documents.</p>
+            
+            <p><a href="what-is-prompt-chaining.html">Prompt chaining</a> and fine-tuning complement each other. Fine-tuning can improve individual steps in a prompt chain, making the overall workflow more reliable.</p>
+            
+            <div class="related-box">
+                <h3>Related Topics</h3>
+                <div class="related-links">
+                    <a href="what-is-retrieval-augmented-generation.html" class="related-link">
+                        <div class="related-link-title">RAG</div>
+                        <div class="related-link-desc">Alternative to fine-tuning</div>
+                    </a>
+                    <a href="what-is-an-embedding.html" class="related-link">
+                        <div class="related-link-title">Embeddings</div>
+                        <div class="related-link-desc">Can also be fine-tuned</div>
+                    </a>
+                    <a href="what-is-an-llm-agent.html" class="related-link">
+                        <div class="related-link-title">LLM Agents</div>
+                        <div class="related-link-desc">Benefit from fine-tuning</div>
+                    </a>
+                    <a href="what-is-prompt-chaining.html" class="related-link">
+                        <div class="related-link-title">Prompt Chaining</div>
+                        <div class="related-link-desc">Works with fine-tuned models</div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="faq">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">When should you fine-tune instead of using prompt engineering?</div>
+                    <div class="faq-answer">Fine-tune when you need consistent behavior across many requests, when prompts become too long or complex, when you need the model to learn new patterns or terminology, or when you require better performance on domain-specific tasks.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How much data do you need for fine-tuning?</div>
+                    <div class="faq-answer">Basic fine-tuning can work with as few as 50-100 examples for simple tasks. More complex tasks or significant behavior changes typically require 500-1000 examples or more. Quality matters more than quantity.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Does fine-tuning replace the original model knowledge?</div>
+                    <div class="faq-answer">No, fine-tuning adds to the model's capabilities rather than replacing them. The model retains its original knowledge while learning new patterns or adapting to your specific use case.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AI Fundamentals. Educational resource for understanding AI concepts.</p>
+            <div class="footer-links">
+                <a href="what-is-prompt-chaining.html">Prompt Chaining</a>
+                <a href="what-is-retrieval-augmented-generation.html">RAG</a>
+                <a href="what-is-an-llm-agent.html">LLM Agents</a>
+                <a href="what-is-fine-tuning.html">Fine-Tuning</a>
+                <a href="what-is-an-embedding.html">Embeddings</a>
+                <a href="about.html">About</a>
+                <a href="case-study.html">Case Study</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

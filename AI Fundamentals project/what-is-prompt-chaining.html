@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Prompt Chaining? | AI Fundamentals</title>
+    <meta name="description" content="Prompt chaining is a technique where a complex task is broken into multiple smaller prompts, with each prompt using the previous output to produce clearer, more accurate final results.">
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ai-fundamentals.example.com"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "What is Prompt Chaining",
+            "item": "https://ai-fundamentals.example.com/what-is-prompt-chaining"
+        }]
+    }
+    </script>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What is Prompt Chaining?",
+        "description": "A clear explanation of prompt chaining in AI systems",
+        "image": "https://ai-fundamentals.example.com/images/prompt-chaining.png",
+        "author": {
+            "@type": "Organization",
+            "name": "AI Fundamentals"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AI Fundamentals",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ai-fundamentals.example.com/logo.png"
+            }
+        },
+        "datePublished": "2025-01-20",
+        "dateModified": "2025-01-21",
+        "wordCount": 1200,
+        "inLanguage": "en-US",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ai-fundamentals.example.com/what-is-prompt-chaining"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "When should you use prompt chaining?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use prompt chaining when a task requires multiple steps that depend on previous outputs, when you need to break down complex reasoning into smaller parts, or when different parts of a task need different specialized prompts."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between prompt chaining and single prompts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A single prompt tries to accomplish everything in one step. Prompt chaining breaks the task into sequential steps where each prompt handles one specific part and passes its output to the next prompt."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can prompt chaining work with any AI model?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, prompt chaining works with any text-based AI model including GPT-4, Claude, and open-source models. The technique is model-agnostic and depends on linking outputs to inputs."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">AI</div>
+                <span class="logo-text">AI Fundamentals</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#concepts">Concepts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-study.html">Case Study</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / What is Prompt Chaining
+        </div>
+        
+        <main>
+            <h1>What is Prompt Chaining?</h1>
+            
+            <div class="definition">
+                <strong>Definition:</strong> Prompt chaining is a technique where a complex task is broken into multiple smaller prompts, with each prompt using the previous output to produce clearer, more accurate final results.
+            </div>
+            
+            <div class="answer-block">
+                <p>Prompt chaining splits a complex task into smaller, sequential steps. Each step uses a separate prompt that processes information and passes results to the next prompt in the chain. This approach allows AI systems to handle tasks that would be too complex or inconsistent if attempted in a single prompt.</p>
+            </div>
+            
+            <h2>How Prompt Chaining Works</h2>
+            <p>In prompt chaining, you create a sequence of prompts where each prompt has a specific purpose. The AI processes the first prompt and generates an output. That output then becomes part of the input for the second prompt, and so on.</p>
+            
+            <p>For example, if you want to analyze customer feedback, you might chain three prompts:</p>
+            <ol>
+                <li>Extract key themes from the feedback</li>
+                <li>Categorize each theme as positive, negative, or neutral</li>
+                <li>Generate actionable recommendations based on the categorized themes</li>
+            </ol>
+            
+            <div class="diagram">
+                <div class="diagram-title">Simple Prompt Chain Example</div>
+                <div class="diagram-content">
+                    Input → [Prompt 1] → Output A<br>
+                    Output A → [Prompt 2] → Output B<br>
+                    Output B → [Prompt 3] → Final Result
+                </div>
+            </div>
+            
+            <h2>Why Prompt Chaining Matters</h2>
+            <p>Prompt chaining improves accuracy because each prompt focuses on one specific task. When you try to do too much in a single prompt, the AI model can lose focus or produce inconsistent results.</p>
+            
+            <p>Prompt chaining also makes workflows more transparent. You can see exactly what happened at each step, which makes debugging easier. If something goes wrong, you know which prompt in the chain needs adjustment.</p>
+            
+            <p>Complex tasks benefit from prompt chaining because you can use different strategies for different parts of the workflow. One prompt might need detailed instructions while another works better with a simple question. This is particularly useful when working with <a href="what-is-an-llm-agent.html">LLM agents</a> that need to make decisions at each step.</p>
+            
+            <h2>Example of Prompt Chaining</h2>
+            <p>Here is a simple prompt chain for writing a product description:</p>
+            
+            <p><strong>Prompt 1:</strong> "List the key features of this product: [product details]"</p>
+            <p><strong>Output 1:</strong> "Feature list: waterproof, 10-hour battery, wireless charging"</p>
+            
+            <p><strong>Prompt 2:</strong> "Take these features and identify the main customer benefit for each: [Output 1]"</p>
+            <p><strong>Output 2:</strong> "Benefits: use in any weather, all-day usage, convenient charging"</p>
+            
+            <p><strong>Prompt 3:</strong> "Write a product description using these benefits: [Output 2]"</p>
+            <p><strong>Output 3:</strong> "[Final product description]"</p>
+            
+            <h2>Common Mistakes with Prompt Chaining</h2>
+            <p>The most common mistake is creating too many steps. Each additional prompt adds time and cost. If you can accomplish a task in two prompts instead of five, do that.</p>
+            
+            <p>Another mistake is not validating outputs between steps. If an early prompt produces bad output, every subsequent prompt will work with that bad data. Always check critical outputs before passing them forward.</p>
+            
+            <p>Poor error handling causes problems in prompt chains. If one prompt fails, you need a plan. Some implementations retry the failed prompt, others use fallback prompts, and some notify a human to intervene.</p>
+            
+            <h2>Related Concepts</h2>
+            <p>Prompt chaining connects to several other AI techniques. <a href="what-is-an-llm-agent.html">LLM agents</a> often use prompt chaining internally to break down tasks. <a href="what-is-retrieval-augmented-generation.html">Retrieval augmented generation</a> can be part of a prompt chain where one prompt retrieves information and another uses it to generate a response.</p>
+            
+            <p>Understanding <a href="what-is-fine-tuning.html">fine-tuning</a> helps because you might fine-tune a model to work better in a specific step of your chain. <a href="what-is-an-embedding.html">Embeddings</a> are relevant when your chain needs to search or compare semantic similarity between steps.</p>
+            
+            <div class="related-box">
+                <h3>Related Topics</h3>
+                <div class="related-links">
+                    <a href="what-is-an-llm-agent.html" class="related-link">
+                        <div class="related-link-title">LLM Agents</div>
+                        <div class="related-link-desc">AI systems that take actions</div>
+                    </a>
+                    <a href="what-is-retrieval-augmented-generation.html" class="related-link">
+                        <div class="related-link-title">RAG</div>
+                        <div class="related-link-desc">Retrieve before generating</div>
+                    </a>
+                    <a href="what-is-fine-tuning.html" class="related-link">
+                        <div class="related-link-title">Fine-Tuning</div>
+                        <div class="related-link-desc">Customize AI models</div>
+                    </a>
+                    <a href="what-is-an-embedding.html" class="related-link">
+                        <div class="related-link-title">Embeddings</div>
+                        <div class="related-link-desc">Convert text to numbers</div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="faq">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">When should you use prompt chaining?</div>
+                    <div class="faq-answer">Use prompt chaining when a task requires multiple steps that depend on previous outputs, when you need to break down complex reasoning into smaller parts, or when different parts of a task need different specialized prompts.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What is the difference between prompt chaining and single prompts?</div>
+                    <div class="faq-answer">A single prompt tries to accomplish everything in one step. Prompt chaining breaks the task into sequential steps where each prompt handles one specific part and passes its output to the next prompt.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can prompt chaining work with any AI model?</div>
+                    <div class="faq-answer">Yes, prompt chaining works with any text-based AI model including GPT-4, Claude, and open-source models. The technique is model-agnostic and depends on linking outputs to inputs.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AI Fundamentals. Educational resource for understanding AI concepts.</p>
+            <div class="footer-links">
+                <a href="what-is-prompt-chaining.html">Prompt Chaining</a>
+                <a href="what-is-retrieval-augmented-generation.html">RAG</a>
+                <a href="what-is-an-llm-agent.html">LLM Agents</a>
+                <a href="what-is-fine-tuning.html">Fine-Tuning</a>
+                <a href="what-is-an-embedding.html">Embeddings</a>
+                <a href="about.html">About</a>
+                <a href="case-study.html">Case Study</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

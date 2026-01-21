@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Retrieval Augmented Generation? | AI Fundamentals</title>
+    <meta name="description" content="Retrieval Augmented Generation (RAG) is a technique where a language model retrieves relevant external information before generating a response, improving accuracy, relevance, and reducing hallucinations.">
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://ai-fundamentals.example.com"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "What is Retrieval Augmented Generation",
+            "item": "https://ai-fundamentals.example.com/what-is-retrieval-augmented-generation"
+        }]
+    }
+    </script>
+    
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "What is Retrieval Augmented Generation?",
+        "description": "A clear explanation of RAG in AI systems",
+        "image": "https://ai-fundamentals.example.com/images/rag.png",
+        "author": {
+            "@type": "Organization",
+            "name": "AI Fundamentals"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "AI Fundamentals",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://ai-fundamentals.example.com/logo.png"
+            }
+        },
+        "datePublished": "2025-01-20",
+        "dateModified": "2025-01-21",
+        "wordCount": 1100,
+        "inLanguage": "en-US",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://ai-fundamentals.example.com/what-is-retrieval-augmented-generation"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How does RAG differ from traditional AI responses?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Traditional AI models rely only on their training data. RAG systems first search external documents or databases for relevant information, then use that retrieved information to generate more accurate and current responses."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the main benefits of using RAG?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RAG reduces hallucinations by grounding responses in actual documents, allows AI to access current information beyond training data, and provides citations so users can verify sources."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you need a vector database for RAG?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Vector databases are commonly used for RAG because they enable fast semantic search, but RAG can work with traditional databases, search APIs, or any system that retrieves relevant documents."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">AI</div>
+                <span class="logo-text">AI Fundamentals</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#concepts">Concepts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="case-study.html">Case Study</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / What is Retrieval Augmented Generation
+        </div>
+        
+        <main>
+            <h1>What is Retrieval Augmented Generation?</h1>
+            
+            <div class="definition">
+                <strong>Definition:</strong> Retrieval Augmented Generation (RAG) is a technique where a language model retrieves relevant external information before generating a response, improving accuracy, relevance, and reducing hallucinations.
+            </div>
+
+            <div class="answer-block">
+                <p>RAG works in two steps. First, the system searches through documents, databases, or other knowledge sources to find information relevant to the user's question. Second, it uses that retrieved information as context when generating its response. This grounds the AI's answer in actual data rather than relying solely on patterns learned during training.</p>
+            </div>
+            
+            <h2>How RAG Works</h2>
+            <p>When you ask a RAG system a question, it converts your question into a search query. The system then searches its knowledge base for relevant documents or passages using <a href="what-is-an-embedding.html">embeddings</a> to find semantic matches.</p>
+            
+            <p>The system ranks these results by relevance and selects the top matches. These retrieved documents become part of the prompt sent to the language model, along with your original question. The model then generates a response based on both your question and the retrieved information.</p>
+            
+            <div class="diagram">
+                <div class="diagram-title">RAG Process Flow</div>
+                <div class="diagram-content">
+                    User Question → Query Embedding<br>
+                    ↓<br>
+                    Search Knowledge Base<br>
+                    ↓<br>
+                    Retrieve Top Results<br>
+                    ↓<br>
+                    [Question + Retrieved Docs] → LLM<br>
+                    ↓<br>
+                    Generated Response
+                </div>
+            </div>
+            
+            <h2>Why RAG Matters</h2>
+            <p>RAG solves the problem of AI models generating plausible but incorrect information. By requiring the model to reference actual documents, RAG reduces hallucinations and increases accuracy.</p>
+            
+            <p>RAG also allows AI systems to work with current information. Language models are frozen at their training date, but RAG lets them access updated documents, recent news, or proprietary company data that was never in their training set.</p>
+            
+            <p>Organizations use RAG to build AI systems that can answer questions about their internal documents without fine-tuning the model. This makes deployment faster and more cost-effective. RAG is often combined with <a href="what-is-prompt-chaining.html">prompt chaining</a> when complex multi-step workflows require both retrieval and reasoning.</p>
+            
+            <h2>Example of RAG</h2>
+            <p>Consider a customer service chatbot for a software company. Without RAG, the bot only knows what was in its training data. With RAG, the process works like this:</p>
+            
+            <p><strong>User asks:</strong> "How do I reset my password?"</p>
+            
+            <p><strong>System retrieves:</strong> The latest password reset documentation from the company's help center.</p>
+            
+            <p><strong>System generates:</strong> A response that walks through the current password reset process, citing the specific documentation it referenced.</p>
+            
+            <p>The response is accurate because it comes from current documentation, not from training data that might be outdated.</p>
+            
+            <h2>Common Mistakes with RAG</h2>
+            <p>Poor retrieval quality causes the most problems with RAG. If the search component returns irrelevant documents, the generated response will be off-target or confused. The retrieval step needs to be tuned carefully.</p>
+            
+            <p>Another mistake is overloading the context with too many retrieved documents. Language models have token limits, and if you include too much retrieved text, you leave less room for the actual question and response. Finding the right balance is critical.</p>
+            
+            <p>Not citing sources is a missed opportunity. RAG systems can show users exactly which documents informed the response. Without citations, users cannot verify the information or explore further.</p>
+            
+            <h2>Related Concepts</h2>
+            <p>RAG relies heavily on <a href="what-is-an-embedding.html">embeddings</a> to match questions with relevant documents semantically. Understanding how embeddings work helps you optimize RAG retrieval quality.</p>
+            
+            <p><a href="what-is-fine-tuning.html">Fine-tuning</a> offers an alternative approach where you train the model on specific data. RAG and fine-tuning can be combined, with fine-tuning improving the model's reasoning and RAG providing current facts.</p>
+            
+            <p><a href="what-is-an-llm-agent.html">LLM agents</a> often use RAG as one of their tools, retrieving information when needed during autonomous task execution.</p>
+            
+            <div class="related-box">
+                <h3>Related Topics</h3>
+                <div class="related-links">
+                    <a href="what-is-an-embedding.html" class="related-link">
+                        <div class="related-link-title">Embeddings</div>
+                        <div class="related-link-desc">Power semantic search</div>
+                    </a>
+                    <a href="what-is-prompt-chaining.html" class="related-link">
+                        <div class="related-link-title">Prompt Chaining</div>
+                        <div class="related-link-desc">Link prompts together</div>
+                    </a>
+                    <a href="what-is-an-llm-agent.html" class="related-link">
+                        <div class="related-link-title">LLM Agents</div>
+                        <div class="related-link-desc">Autonomous AI systems</div>
+                    </a>
+                    <a href="what-is-fine-tuning.html" class="related-link">
+                        <div class="related-link-title">Fine-Tuning</div>
+                        <div class="related-link-desc">Customize models</div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="faq">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How does RAG differ from traditional AI responses?</div>
+                    <div class="faq-answer">Traditional AI models rely only on their training data. RAG systems first search external documents or databases for relevant information, then use that retrieved information to generate more accurate and current responses.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What are the main benefits of using RAG?</div>
+                    <div class="faq-answer">RAG reduces hallucinations by grounding responses in actual documents, allows AI to access current information beyond training data, and provides citations so users can verify sources.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Do you need a vector database for RAG?</div>
+                    <div class="faq-answer">Vector databases are commonly used for RAG because they enable fast semantic search, but RAG can work with traditional databases, search APIs, or any system that retrieves relevant documents.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AI Fundamentals. Educational resource for understanding AI concepts.</p>
+            <div class="footer-links">
+                <a href="what-is-prompt-chaining.html">Prompt Chaining</a>
+                <a href="what-is-retrieval-augmented-generation.html">RAG</a>
+                <a href="what-is-an-llm-agent.html">LLM Agents</a>
+                <a href="what-is-fine-tuning.html">Fine-Tuning</a>
+                <a href="what-is-an-embedding.html">Embeddings</a>
+                <a href="about.html">About</a>
+                <a href="case-study.html">Case Study</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
