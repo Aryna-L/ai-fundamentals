@@ -1,0 +1,51 @@
+site: https://aryna-ai-fundamentals.netlify.app
+owner: AI Fundamentals
+contact: https://aryna-ai-fundamentals.netlify.app/
+
+# Access policy
+access:
+  allowed: true
+
+# Crawling preferences
+crawl_delay_seconds: 0
+preferred_crawl_frequency: daily
+
+# Content types
+content_types:
+  - educational_articles
+  - definitions
+  - tutorials
+  - FAQs
+
+# AI usage permissions
+ai_usage:
+  - indexing
+  - summarization
+  - question_answering
+  - training_embeddings
+  - retrieval_augmented_generation
+
+# Disallowed AI uses
+disallowed_ai_usage:
+  - generating paid products from this content without attribution
+  - misrepresenting authorship
+  - removing original context
+
+# Attribution
+attribution_required: true
+attribution_format: "Source: AI Fundamentals (aryna-ai-fundamentals.netlify.app)"
+
+# Preferred content paths
+preferred_paths:
+  - /
+  - /what-is-prompt-chaining
+  - /what-is-retrieval-augmented-generation
+  - /what-is-an-llm-agent
+  - /what-is-fine-tuning
+  - /what-is-an-embedding
+
+# Notes
+notes:
+  - Content is designed for accurate extraction by LLMs.
+  - FAQ and definition blocks are the most reliable answer sources.
+  - Pages use structured data for enhanced machine readability.
