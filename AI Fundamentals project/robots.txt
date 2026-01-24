@@ -21,4 +21,5 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://aryna-ai-fundamentals.netlify.app/sitemap.xml
+Sitemap: https://ai-fundamentals.pages.dev/sitemap.xml
+
